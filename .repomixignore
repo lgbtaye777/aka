@@ -1,0 +1,56 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+
+# Build outputs
+dist/
+frontend/dist/
+build/
+.vite/
+coverage/
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+!backend/.env.example
+!frontend/.env.example
+!frontend/.env.production.example
+
+# Local databases and runtime files
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.log
+
+# Python cache and virtual environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+venv/
+env/
+.venv/
+
+# IDE and OS noise
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Repomix output and temporary files
+repomix-output.*
+*.repomix.*
+
+# Large legacy snapshot kept only for rollback/reference
+frontend/index.legacy.html
+
+# Local server/VPS notes and exports
+vdsina-vps-docs-master/
+server-docs/
+server-dumps/
+*.dump
+*.sql
+*.bak
