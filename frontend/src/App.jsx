@@ -9,8 +9,10 @@ import AdminLoginPage from './pages/admin/AdminLoginPage.jsx';
 import LandingPage from './pages/LandingPage.jsx';
 
 export default function App() {
+  const basename = import.meta.env.BASE_URL === '/' ? undefined : import.meta.env.BASE_URL.replace(/\/$/, '');
+
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/admin/login" element={<AdminLoginPage />} />

@@ -1,5 +1,7 @@
 const API_URL = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? 'http://localhost:8000' : window.location.origin);
 const TOKEN_KEY = 'admin_token';
+const APP_BASE_PATH = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.replace(/\/$/, '');
+const ADMIN_LOGIN_PATH = `${APP_BASE_PATH}/admin/login`;
 
 export const ADMIN_TOKEN_KEY = TOKEN_KEY;
 
@@ -41,8 +43,8 @@ async function request(path, options = {}) {
 
   if (response.status === 401) {
     clearAdminToken();
-    if (window.location.pathname !== '/admin/login') {
-      window.location.href = '/admin/login';
+    if (window.location.pathname !== ADMIN_LOGIN_PATH) {
+      window.location.href = ADMIN_LOGIN_PATH;
     }
     throw new Error('Unauthorized');
   }
@@ -119,7 +121,7 @@ export async function exportLeadsCsv(params = {}) {
 
   if (response.status === 401) {
     clearAdminToken();
-    window.location.href = '/admin/login';
+    window.location.href = ADMIN_LOGIN_PATH;
     throw new Error('Unauthorized');
   }
 
